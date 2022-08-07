@@ -31,8 +31,24 @@ fn main() {
                 }
             }
         },
-        Commands::Open(_) => {
-            println!("You attempted to open");
-        }
+        Commands::Open(text) => match &text.text {
+            // If arguments are passed in, use string instead of url endpoint
+            Some(text) => {
+                let links = text.lines();
+
+                for link in links {
+                    match open::that(link) {
+                        Ok(_) => {}
+                        Err(e) => {
+                            println!("Something went wrong: {}", e)
+                        }
+                    }
+                }
+            }
+            // If no arguments are passed in, load data from url endpoint
+            None => {
+                println!("You attempted to open");
+            }
+        },
     }
 }

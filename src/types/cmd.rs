@@ -21,4 +21,7 @@ pub struct Config {
 }
 
 #[derive(Args)]
-pub struct Open {}
+pub struct Open {
+    #[clap(value_parser)]
+    pub text: Option<String>,
+}
