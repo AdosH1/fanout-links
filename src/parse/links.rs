@@ -1,5 +1,3 @@
-//use std::io::Lines;
-
-// pub fn parseFromCmd(text: String) -> Lines<str> {
-//     text.lines()
-// }
+pub fn parse_from_cmd(text: &String) -> Vec<&str> {
+    text.lines().collect::<Vec<_>>()
+}

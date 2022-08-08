@@ -1,12 +1,14 @@
-use clap::Parser;
-mod types;
-use crate::io::file::get_config;
-use crate::io::file::set_config;
-use crate::types::cmd::Cli;
-use crate::types::cmd::Commands;
 mod io;
+mod parse;
+mod types;
+use crate::io::file::{get_config, set_config};
+use crate::io::web::get_web_body;
+use crate::types::cmd::{Cli, Commands};
+use clap::Parser;
+use parse::links::parse_from_cmd;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let args: Cli = Cli::parse();
 
     match &args.command {
@@ -34,7 +36,7 @@ fn main() {
         Commands::Open(text) => match &text.text {
             // If arguments are passed in, use string instead of url endpoint
             Some(text) => {
-                let links = text.lines();
+                let links = parse_from_cmd(text);
 
                 for link in links {
                     match open::that(link) {
@@ -46,9 +48,30 @@ fn main() {
                 }
             }
             // If no arguments are passed in, load data from url endpoint
-            None => {
-                println!("You attempted to open");
-            }
+            None => match get_config() {
+                Ok(url) => {
+                    let web_response = get_web_body(url).await;
+                    match web_response {
+                        Ok(body) => {
+                            let links = body.lines();
+                            for link in links {
+                                match open::that(link) {
+                                    Ok(_) => {}
+                                    Err(e) => {
+                                        println!("Something went wrong: {}", e)
+                                    }
+                                }
+                            }
+                        }
+                        Err(e) => {
+                            println!("Something went wrong: {}", e)
+                        }
+                    }
+                }
+                Err(e) => {
+                    println!("Could not get config: {}", e)
+                }
+            },
         },
     }
 }
