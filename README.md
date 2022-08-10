@@ -25,3 +25,7 @@ https://github.com/rust-lang/book"
 ```
 
 ### Installation
+Download the package to the right or build the code yourself. <br/>
+Run the program via. your command line of choice (following usage section above) <br/>
+
+Note: I personally set up a new environment variable so I can run this cmd anywhere. 

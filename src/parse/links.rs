@@ -1,3 +1,3 @@
-pub fn parse_from_cmd(text: &String) -> Vec<&str> {
+pub fn parse_text(text: &String) -> Vec<&str> {
     text.lines().collect::<Vec<_>>()
 }
