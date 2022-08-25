@@ -17,11 +17,11 @@ pub enum Commands {
 #[derive(Args)]
 pub struct Config {
     #[clap(value_parser)]
-    pub url: Option<String>,
+    pub api: Option<String>,
 }
 
 #[derive(Args)]
 pub struct Open {
     #[clap(value_parser)]
-    pub text: Option<String>,
+    pub links: Option<String>,
 }
