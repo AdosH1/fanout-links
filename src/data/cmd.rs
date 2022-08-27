@@ -12,6 +12,8 @@ pub enum Commands {
     Config(Config),
     /// Fan out links specified in config into browser.
     Open(Open),
+    /// Give a set of links a name to open at a different time.
+    Save(Save),
 }
 
 #[derive(Args)]
@@ -23,5 +25,12 @@ pub struct Config {
 #[derive(Args)]
 pub struct Open {
     #[clap(value_parser)]
+    pub cmd: Option<String>,
+}
+
+#[derive(Args)]
+pub struct Save {
+    #[clap(value_parser)]
+    pub name: Option<String>,
     pub links: Option<String>,
 }
