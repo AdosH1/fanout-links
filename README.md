@@ -10,11 +10,16 @@ Opens links in your default browser from a url endpoint or from a cmdline argume
 From url endpoint (in development):
 ```bash
 fl config
-# checks current url endpoint
+# checks current api endpoint
 
 fl config https://my-endpoint-with-links.com
 fl open
 # opens all links received from endpoint
+
+fl save <name> <newline-seperated-links>
+fl open <name>
+# opens links based on name given
+# saving to the same name will overwrite that configuration
 ```
 
 From cmdline:
