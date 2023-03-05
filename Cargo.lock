@@ -101,6 +101,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "confy"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4b1400cd0dae7f27d2c7ced9492e1398d2e2df614570092a4936c73b416dedea"
+dependencies = [
+ "directories",
+ "serde",
+ "toml",
+]
+
+[[package]]
 name = "core-foundation"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -115,6 +126,15 @@ name = "core-foundation-sys"
 version = "0.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5827cebf4670468b8772dd191856768aedcb1b0278a04f989f7766351917b9dc"
+
+[[package]]
+name = "directories"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fc2561db021b6f1321d0f16b67ed28ce843ef4610dfaa432e3ffa2e8a3050ebf"
+dependencies = [
+ "winapi",
+]
 
 [[package]]
 name = "encoding_rs"
@@ -140,6 +160,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "confy",
  "open",
  "reqwest",
  "serde",
@@ -923,6 +944,15 @@ dependencies = [
  "pin-project-lite",
  "tokio",
  "tracing",
+]
+
+[[package]]
+name = "toml"
+version = "0.4.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "758664fc71a3a69038656bee8b6be6477d2a6c315a6b81f7081f591bffa4111f"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
