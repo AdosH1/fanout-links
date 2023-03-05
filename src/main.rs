@@ -14,9 +14,12 @@ async fn main() {
     let args: Cli = Cli::parse();
     let mut config = match get_config() {
         Ok(s) => s,
-        Err(_) => Settings {
+        Err(_) => {
+            println!("An error went wrong loading config.. using default.");
+            Settings {
             api: None,
             custom_links: None,
+            }
         },
     };
 
