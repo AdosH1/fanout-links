@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configuration of api endpoint
 - Opening data from api endpoint
 
-
+[1.2.0]: https://github.com/AdosH1/fanout-links/commit/491920675c5a6f87f2c76774d2df8e72b8c15ea5
 [1.1.0]: https://github.com/AdosH1/fanout-links/commit/f941f8fe4492c9ada26b73a92c386e814045dbc2
 [1.0.2]: https://github.com/AdosH1/fanout-links/commit/dc243b2732a9afb103dc8129ba184ed2e4f404a3
 [1.0.1]: https://github.com/AdosH1/fanout-links/commit/02c05f9f9ced31fb5dcb88da163323979bcd79bd
